@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    background-image: url("background.jpg");
+    background-position:cover;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-div{
+    height: 300px;
+    width: 380px;
+    position: relative;
+    border-radius: 11px;
+    background-color: rgb(204, 224, 252);
+}
+#sign-in-heading{
+    text-align: center;
+    padding-top: 15px;
+    font-size: 21px;
+    color: rgb(70, 75, 80);
+}
+#sign-in-heading i{
+    font-size: 16px;
+    cursor: pointer;
+}
+#line{
+    content: '';
+    width: 85px;
+    height: 1.5px;
+    background-color: rgb(63, 68, 72);
+    position: relative;
+    left: 147px;
+    margin-top: 4px;
+    margin-bottom: 28px;
+    border: none;
+}
+.input-div{
+    margin-left: -15px;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.input{
+    width: 65%;
+    height: 35px;
+    border: none;
+    padding-left: 6px; 
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.icon{
+    width: 25px;
+    font-size: 19px;
+    padding-top: 14px;
+    text-align: center;
+    margin-right: 5px;
+}
+.hide-icon{
+    position: absolute;
+    right: 58px;
+    transform: translate(0px, 15px);
+    font-size: 15px;
+    cursor: pointer;
+}
+.question{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-size: 13px;
+    /* padding-top: 15px; */
+    margin-top: 19px;
+}
+.remember_me {
+    display: flex;
+    margin-left: 13px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    height: 35px;
+    
+}
+.sign-in-btn{
+    width: 69%;
+    font-size: 16px;
+    margin-right: -10px;
+    border-radius: 16px;
+    border: transparent;
+    background-color: rgb(8, 35, 76);
+    color: rgb(193, 207, 218);
+    cursor: pointer;
+}
+.border{
+    border: 1.0px solid transparent;
+}
+.border:hover{
+    border: 2.0px solid rgb(8, 35, 76);
+    background-color: rgb(16, 85, 187);
+}
+.sign-in-to-sign-up{
+    text-align: center;
+    font-size: 12.5px;
+    padding-top: 16px;
+}
+.sign-in-to-sign-up a{
+    font-size: 14.5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="sub-div">
+
+            <!-- Giving heading to the sign-in page and underline -->
+            <p id="sign-in-heading">Sign-in  <i class="fa-solid fa-earth-americas"></i></p>
+            <hr id="line">
+
+            <!-- Designing a form -->
+            <form method="POST"> 
+                {% csrf_token %}
+
+                <!-- input-username -->
+                <label for="username"></label>
+                <div class="input-div">
+                    <div class="icon"><i class="fa-solid fa-user"></i></div>
+                    <input class="input" id="username" type="username" placeholder="Enter username" name="username">
+                </div>
+
+                <!-- input-password -->
+                <label for="password"></label>
+                <div class="input-div">
+                    <div class="icon"><i class="fa-solid fa-lock"></i></div>
+                    <input class="input" id="password" type="password" placeholder="Password***" name="pass">
+                    <!-- Hide Icon -->
+                    <div class="hide-icon" id="eye"><i class="fa-regular fa-eye" onclick="toggle()"></i></div>
+                </div>
+                
+                    
+                <!-- div containing remember_me check box and forgot password option -->
+                <div class="question">
+
+                    <!-- remember me -->
+                    <div class="remember_me">
+                        <input type="checkbox" class="check"> Remember Me
+                    </div>
+
+                    <!-- forgot-password link -->
+                    <div class="forgot-password">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                </div>
+
+                <!-- sign-in button -->
+                <div class="button">
+                    <button type="submit" class="sign-in-btn border"> Sign-in </button>
+                </div>
+
+                <!-- link for Sign-Up form -->
+                <p class="sign-in-to-sign-up"> Don't have an account? <a href="{% url 'signup' %}">Sign-Up </a></p>
+            </form>
+            
+
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

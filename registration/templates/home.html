@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: azure;
+            background-image: url('background.jpg');
+        }
+        .btn{
+            color: azure;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Welcome User
+    </h1>
+    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+</body>
+</html>

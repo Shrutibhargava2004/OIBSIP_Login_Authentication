@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <link rel="stylesheet" href="sign-up.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style media="screen">
+        *{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    background-image: url("background.jpg");
+    background-position:cover;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-div{
+    height: 430px;
+    width: 380px;
+    position: relative;
+    border-radius: 11px;
+    background-color: rgb(204, 224, 252);
+}
+#sign-up-heading{
+    text-align: center;
+    padding-top: 15px;
+    font-size: 21px;
+    color: rgb(70, 75, 80);
+}
+#sign-up-heading i{
+    font-size: 16px;
+    cursor: pointer;
+}
+#line{
+    content: '';
+    width: 222px;
+    height: 1.5px;
+    background-color: rgb(63, 68, 72);
+    position: relative;
+    left: 21.5%;
+    margin-top: 4px;
+    margin-bottom: 28px;
+    border: none;
+}
+.input-div{
+    /* margin-left: -15px; */
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.input{
+    width: 80%;
+    height: 35px;
+    border: none;
+    padding-left: 6px; 
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.name{
+    margin-right: -28px;
+}
+.hide-icon{
+    position: absolute;
+    right: 43px;
+    transform: translate(0px, -25px);
+    font-size: 14.5px;
+    cursor: pointer;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: 35px;
+}
+.sign-up-btn{
+    width: 69%;
+    font-size: 16px;
+    margin-right: -10px;
+    border-radius: 16px;
+    border: transparent;
+    background-color: rgb(8, 35, 76);
+    color: rgb(193, 207, 218);
+    cursor: pointer;
+}
+.border{
+    border: 1.0px solid transparent;
+}
+.border:hover{
+    border: 2.0px solid rgb(8, 35, 76);
+    background-color: rgb(16, 85, 187);
+}
+p{
+    font-size: 12.5px;
+    padding-top: 16px;
+    margin-left: 38px;
+    margin-right: 10px;
+}
+.sign-up-to-sign-in{
+    text-align: center;
+    font-size: 12.5px;
+    padding-top: 16px;
+}
+.sign-up-to-sign-in a{
+    font-size: 14.5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="sub-div">
+
+            <!-- Giving heading to the sign-in page and underline -->
+            <p id="sign-up-heading">Sign-up for Amazon.com <i class="fa-solid fa-earth-americas"></i></p>
+            <hr id="line">
+
+            <!-- Designing a form -->
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <!-- input-NAME -->
+                <div class="input-div name">
+
+                    <!-- input first name -->
+                    <label for="first-name"></label>
+                    <div class="first-name">
+                        <input class="input" id="fname" type="text" name="fname" placeholder="First Name">
+                    </div>
+
+                    <!-- input last name -->
+                    <label for="last-name"></label>
+                    <div class="last-name">
+                        <input class="input" id="lname" type="text" name="lname" placeholder="Last Name">
+                    </div>
+
+                </div>
+                
+                <!-- input username -->
+                <label for="username"></label>
+                <div class="input-div">
+                    <input class="input" id="username" type="username" name="username" placeholder="username">
+                </div>
+
+                
+
+                <!-- input-password -->
+                <label for="password"></label>
+                <div class="input-div">
+                    <input class="input" id="password" type="password" name="password" placeholder="Password***">
+                </div>
+                <div class="hide-icon" id="eye"><i class="fa-regular fa-eye" onclick="toggle()"></i></div>
+
+                <!-- confirm-password -->
+                <label for="confirm-password"></label>
+                <div class="input-div">
+                    <input class="input" id="confirm-password" type="password" name="confirm-password" placeholder="Confirm Password***">
+                </div>
+                <div class="hide-icon" id="eye-1"><i class="fa-regular fa-eye" onclick="toggle1()"></i></div>
+
+                <p>*By clicking sign-up button, you agree to our 
+                <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                </p>
+
+
+                <!-- sign-in button -->
+                <div class="button">
+                    <button type="submit" class="sign-up-btn border"> Sign-up </button>
+                </div>
+
+                <!-- link for Sign-Up form -->
+                <p class="sign-up-to-sign-in"> Already have an account? <a href="{% url 'login' %}"> Login </a></p>
+            </form>
+            
+
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
